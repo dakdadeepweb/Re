@@ -1,0 +1,37 @@
+/* Estilo para a página de Sugestões */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 80px; /* Para dar espaço para a navbar */
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #6200ea;
+}
+
+p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+iframe {
+    border-radius: 8px;
+}

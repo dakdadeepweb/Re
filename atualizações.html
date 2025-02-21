@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizações - Realm of Jewels</title>
+    <link rel="stylesheet" href="atualizações.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="home.html">Início</a></li>
+            <li><a href="redessociais.html">Redes Sociais</a></li>
+            <li><a href="equipe.html">Equipe</a></li>
+            <li><a href="atualizações.html">Atualizações</a></li>
+            <li><a href="lancaratualizacao.html">Lançar Atualização</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="sugestao.html">Sugestões</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Atualizações Recentes</h1>
+
+        <div id="update-display">
+            <!-- As atualizações vão aparecer aqui -->
+        </div>
+    </div>
+
+    <script>
+        // Recuperando as informações do localStorage
+        const updateData = JSON.parse(localStorage.getItem('updateData'));
+
+        if (updateData) {
+            // Se houver dados no localStorage, exibe a atualização
+            const updateDisplay = document.getElementById('update-display');
+
+            const updateHTML = `
+                <div class="update-item">
+                    <h2>Nome da Atualização: ${updateData.updateName}</h2>
+                    <p><strong>Personagens:</strong> ${updateData.characters}</p>
+                    <p><strong>Data de Lançamento:</strong> ${updateData.releaseDate}</p>
+                    <img src="${updateData.banner}" alt="Banner da atualização" style="width: 100%; max-width: 600px; margin-top: 10px;">
+                </div>
+            `;
+
+            updateDisplay.innerHTML = updateHTML;  // Exibe as informações na página
+        } else {
+            // Caso não haja dados no localStorage, exibe uma mensagem
+            document.getElementById('update-display').innerHTML = '<p>Não há atualizações para mostrar no momento.</p>';
+        }
+    </script>
+</body>
+</html>

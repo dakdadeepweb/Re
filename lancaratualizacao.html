@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lançar Atualização - Realm of Jewels</title>
+    <link rel="stylesheet" href="lançar.css"> <!-- Adicionando o CSS externo -->
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="home.html">Início</a></li>
+            <li><a href="redessociais.html">Redes Sociais</a></li>
+            <li><a href="equipe.html">Equipe</a></li>
+            <li><a href="atualizações.html">Atualizações</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="sugestao.html">Sugestões</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Lançar Atualização</h1>
+
+        <form id="form-atualizacao">
+            <label for="nome">Nome da Atualização:</label>
+            <input type="text" id="nome" name="nome_atualizacao" required>
+
+            <label for="personagens">Personagens da Atualização:</label>
+            <textarea id="personagens" name="personagens" required></textarea>
+
+            <label for="banner">Banner da Atualização (URL da Imagem):</label>
+            <input type="url" id="banner" name="banner_url" placeholder="Digite o URL da imagem" required>
+
+            <label for="data">Data de Lançamento:</label>
+            <input type="date" id="data" name="data_lancamento" required>
+
+            <button type="submit">Lançar Atualização</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('form-atualizacao').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Coleta os dados do formulário
+            const nomeAtualizacao = document.getElementById('nome').value;
+            const personagens = document.getElementById('personagens').value;
+            const banner = document.getElementById('banner').value;
+            const dataLancamento = document.getElementById('data').value;
+
+            // Cria um objeto com as informações da atualização
+            const updateData = {
+                updateName: nomeAtualizacao,
+                characters: personagens,
+                banner: banner,
+                releaseDate: dataLancamento
+            };
+
+            // Armazena o objeto no localStorage
+            localStorage.setItem('updateData', JSON.stringify(updateData));
+
+            // Limpa o formulário após salvar os dados
+            document.getElementById('form-atualizacao').reset();
+
+            // Alerta para o usuário que os dados foram salvos
+            alert("Atualização lançada com sucesso!");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+/* Estilo da página Redes Sociais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 80px; /* Adicionando margem superior para garantir que a navbar fique visível */
+}
+
+h1 {
+    color: #6200ea;
+    font-size: 2rem;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.social-link {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.whatsapp {
+    background-color: #25D366;
+}
+
+.whatsapp:hover {
+    background-color: #1da851;
+}
+
+.youtube {
+    background-color: #FF0000;
+}
+
+.youtube:hover {
+    background-color: #cc0000;
+}
+
+.discord {
+    background-color: #7289DA;
+}
+
+.discord:hover {
+    background-color: #5b6e8b;
+}
+
+.x {
+    background-color: #1DA1F2;
+}
+
+.x:hover {
+    background-color: #1798e2;
+}

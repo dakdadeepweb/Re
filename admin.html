@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Administração - Realm of Jewels</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="home.html">Início</a></li>
+            <li><a href="redessociais.html">Redes Sociais</a></li>
+            <li><a href="equipe.html">Equipe</a></li>
+            <li><a href="atualizações.html">Atualizações</a></li>
+            <li><a href="lancaratualizacao.html">Lançar Atualização</a></li> <!-- Adicionado link para Lançar Atualização -->
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="sugestão.html">Sugestões</a></li>
+            <li><a href="admin.html" class="active">Painel de Administração</a></li>
+        </ul>
+    </nav>
+
+    <!-- Conteúdo do Painel -->
+    <div class="container">
+        <h1>Painel de Administração</h1>
+
+        <!-- Formulário de Lançamento de Atualização -->
+        <div class="form-section">
+            <h2>Lançar Atualização</h2>
+            <form action="processar_atualizacao.html" method="POST">
+                <label for="nome">Nome da Atualização:</label>
+                <input type="text" id="nome" name="nome_atualizacao" required>
+
+                <label for="personagens">Personagens da Atualização:</label>
+                <textarea id="personagens" name="personagens" required></textarea>
+
+                <label for="banner">Banner da Atualização (URL da Imagem):</label>
+                <input type="url" id="banner" name="banner_url" placeholder="Digite o URL da imagem" required>
+
+                <label for="data">Data de Lançamento:</label>
+                <input type="date" id="data" name="data_lancamento" required>
+
+                <button type="submit">Lançar Atualização</button>
+            </form>
+        </div>
+
+        <!-- Formulário para Adicionar um Novo Admin -->
+        <div class="form-section">
+            <h2>Adicionar Novo Administrador</h2>
+            <button id="open-add-admin-form">Adicionar Admin</button>
+            
+            <!-- Formulário de Adicionar Admin -->
+            <div id="add-admin-form" style="display:none;">
+                <label for="email">Email do Novo Administrador:</label>
+                <input type="email" id="email" name="email_admin" required>
+                <button id="add-admin-btn">Adicionar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
