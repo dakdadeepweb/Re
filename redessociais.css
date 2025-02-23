@@ -76,5 +76,9 @@ p {
 }
 
 .telegram {
- background-color: #5b6e8b;
+    background-color: #0088cc;
+}
+
+.telegram:hover {
+    background-color: #0077b5;
 }
