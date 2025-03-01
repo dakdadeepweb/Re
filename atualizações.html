@@ -28,27 +28,31 @@
     </div>
 
     <script>
-        // Recuperando as informações do localStorage
-        const updateData = JSON.parse(localStorage.getItem('updateData'));
+document.addEventListener("DOMContentLoaded", function () {
+    const updateDisplay = document.getElementById("update-display");
 
-        if (updateData) {
-            // Se houver dados no localStorage, exibe a atualização
-            const updateDisplay = document.getElementById('update-display');
+    // Pegando as atualizações salvas
+    let updates = JSON.parse(localStorage.getItem("updates")) || [];
 
+    if (updates.length === 0) {
+        updateDisplay.innerHTML = '<p>Não há atualizações para mostrar no momento.</p>';
+    } else {
+        updateDisplay.innerHTML = ""; // Limpando antes de exibir
+
+        updates.forEach(update => {
             const updateHTML = `
                 <div class="update-item">
-                    <h2>Nome da Atualização: ${updateData.updateName}</h2>
-                    <p><strong>Personagens:</strong> ${updateData.characters}</p>
-                    <p><strong>Data de Lançamento:</strong> ${updateData.releaseDate}</p>
-                    <img src="${updateData.banner}" alt="Banner da atualização" style="width: 100%; max-width: 600px; margin-top: 10px;">
+                    <h2>${update.nome}</h2>
+                    <p><strong>Personagens:</strong> ${update.personagens}</p>
+                    <p><strong>Data de Lançamento:</strong> ${update.dataLancamento}</p>
+                    <img src="${update.banner}" alt="Banner da atualização" style="width: 100%; max-width: 600px; margin-top: 10px;">
                 </div>
             `;
+            updateDisplay.innerHTML += updateHTML;
+        });
+    }
+});
 
-            updateDisplay.innerHTML = updateHTML;  // Exibe as informações na página
-        } else {
-            // Caso não haja dados no localStorage, exibe uma mensagem
-            document.getElementById('update-display').innerHTML = '<p>Não há atualizações para mostrar no momento.</p>';
-        }
     </script>
 </body>
 </html>
