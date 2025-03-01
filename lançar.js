@@ -1,29 +1,27 @@
-document.getElementById("update-form").addEventListener("submit", function(event) {
+document.getElementById("updateForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    // Pega os valores dos campos
-    const updateName = document.getElementById("update-name").value;
-    const characters = document.getElementById("characters").value;
-    const banner = document.getElementById("banner").files[0];
-    const releaseDate = document.getElementById("release-date").value;
+    const nome = document.getElementById("nome").value;
+    const personagens = document.getElementById("personagens").value;
+    const banner = document.getElementById("banner").value;
+    const dataLancamento = document.getElementById("data").value;
 
-    // Verifica se todos os campos foram preenchidos
-    if (updateName && characters && banner && releaseDate) {
-        alert("Atualização lançada com sucesso!");
+    const novaAtualizacao = {
+        nome,
+        personagens,
+        banner,
+        dataLancamento
+    };
 
-        // Armazenando as informações no localStorage
-        const updateData = {
-            updateName,
-            characters,
-            banner: URL.createObjectURL(banner),  // Convertendo o banner para URL temporária
-            releaseDate
-        };
+    // Pegando atualizações antigas
+    let updates = JSON.parse(localStorage.getItem("updates")) || [];
 
-        localStorage.setItem('updateData', JSON.stringify(updateData));  // Armazena os dados no localStorage
+    // Adicionando a nova atualização na lista
+    updates.push(novaAtualizacao);
 
-        // Limpar o formulário após envio
-        document.getElementById("update-form").reset();
-    } else {
-        alert("Por favor, preencha todos os campos.");
-    }
+    // Salvando de volta no localStorage
+    localStorage.setItem("updates", JSON.stringify(updates));
+
+    alert("Atualização lançada com sucesso!");
+    window.location.href = "atualizacoes.html"; // Redireciona para a página de atualizações
 });
